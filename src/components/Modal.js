@@ -2,8 +2,8 @@ import React from 'react';
 
 import Loader from '../components/Loader';
 
-const Modal = ({ songLyrics, songLyricsLoading, handleCancel, handleCopy }) =>
-  songLyrics && (
+const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, handleCopy }) =>
+  modalVisible && (
     <div
       className="container-fluid"
       style={{

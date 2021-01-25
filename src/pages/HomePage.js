@@ -14,6 +14,7 @@ const HomePage = () => {
   const [songsListLoading, setSongsListLoading] = useState(false);
   const [songLyrics, setSongLyrics] = useState(null);
   const [songLyricsLoading, setSongLyricsLoading] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
 
@@ -90,7 +91,10 @@ const HomePage = () => {
               <SongCard
                 key={item.id}
                 item={item}
-                handleViewLyrics={(artistName, song) => getSongLyrics(artistName, song)}
+                handleViewLyrics={(artistName, song) => {
+                  getSongLyrics(artistName, song);
+                  setModalVisible(true);
+                }}
               />
             ))
           ) : (
@@ -116,9 +120,13 @@ const HomePage = () => {
       </div>
       <Footer />
       <Modal
+        modalVisible={modalVisible}
         songLyrics={songLyrics}
         songLyricsLoading={songLyricsLoading}
-        handleCancel={() => setSongLyrics(null)}
+        handleCancel={() => {
+          setSongLyrics(null);
+          setModalVisible(false);
+        }}
         handleCopy={handleCopy}
       />
     </>
