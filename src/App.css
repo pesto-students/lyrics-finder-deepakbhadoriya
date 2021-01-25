@@ -1,0 +1,138 @@
+/* Home Video CSS */
+
+header {
+  position: relative;
+  background-color: #f6507e;
+  height: 300px;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Home Banner */
+.home-banner {
+  height: 300px;
+  background-color: #f6507e;
+}
+
+.home-banner-text {
+  margin-top: 100px;
+  color: #ffffff;
+}
+
+.search-bar-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 20px 0px;
+  padding: 15px;
+  border-radius: 1000px;
+  margin-top: -30px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 5;
+}
+
+.search-icon {
+  margin: auto;
+  width: 15%;
+}
+
+.search-bar {
+  font-size: 16px;
+  line-height: 25px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  width: 85%;
+}
+
+/* song card */
+.song-card {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px 0px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s linear;
+}
+
+.song-card:hover {
+  border-radius: 10px;
+  margin: -8px 0 8px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px 0px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.album-title {
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.5),
+    rgba(255, 0, 0, 0)
+  );
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
+  height: 70%;
+}
+
+.bottom-white-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 5px 15px;
+  height: 30%;
+  width: 100%;
+  bottom: 0px;
+}
+
+.artist-image {
+  height: 70px;
+  width: 70px;
+  border-radius: 35px;
+  margin-top: -35px;
+  /* float: left; */
+}
+
+.button-style {
+  padding: 3px 20px;
+  border-radius: 50px;
+  transition-duration: 2000ms;
+  /* transition-timing-function: linear; */
+  transition: 0.3s linear;
+}
+
+.button-style:hover {
+  padding: 3px 20px;
+  border-radius: 5px;
+}
