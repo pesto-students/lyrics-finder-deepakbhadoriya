@@ -4,17 +4,7 @@ import Loader from '../components/Loader';
 
 const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, handleCopy }) =>
   modalVisible && (
-    <div
-      className="container-fluid"
-      style={{
-        height: '100%',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        zIndex: 100,
-        backgroundColor: ' rgba(0, 0, 0, 0.8)',
-      }}
-    >
+    <div className="container-fluid modal-background">
       <div className="row">
         <div
           className="offset-lg-3 col-lg-6 col-12 my-5 p-4"

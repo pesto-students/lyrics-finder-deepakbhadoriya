@@ -12,7 +12,7 @@
 header {
   position: relative;
   background-color: #f6507e;
-  height: 250px;
+  height: 300px;
   width: 100%;
   overflow: hidden;
 }
@@ -43,19 +43,31 @@ header .overlay {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: black;
-  opacity: 0.5;
   z-index: 1;
+}
+
+/* Header Style */
+.header-style {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  z-index: 3;
+}
+
+.header-icon {
+  color: #ffffff;
+  height: 40px;
+  width: 40px;
 }
 
 /* Home Banner */
 .home-banner {
-  height: 250px;
+  height: 300px;
   background-color: #f6507e;
 }
 
 .home-banner-text {
-  margin-top: 100px;
+  margin-top: 130px;
   color: #ffffff;
 }
 
@@ -96,7 +108,7 @@ header .overlay {
 .song-card:hover {
   border-radius: 10px;
   margin: -8px 0 8px 0;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 20px 0px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 15px 0px;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -134,4 +146,39 @@ header .overlay {
 .button-style {
   padding: 3px 20px;
   border-radius: 50px;
+}
+
+/* modal background */
+.modal-background {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* General Style */
+.color-white {
+  color: #fff;
+}
+
+.background-primary {
+  background-color: #dc3444;
+}
+
+@media screen and (max-width: 340px) {
+  .search-icon {
+    margin: auto;
+    width: 25%;
+  }
+
+  .search-bar {
+    font-size: 16px;
+    line-height: 25px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 75%;
+  }
 }

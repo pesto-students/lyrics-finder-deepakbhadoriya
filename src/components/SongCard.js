@@ -2,7 +2,7 @@ import React from 'react';
 
 const SongCard = ({ item, handleViewLyrics }) => {
   return (
-    <div className="col-lg-3 col-md-4 col-6 my-3">
+    <div className="col-lg-3 col-md-4 col-sm-6 col-12 my-3">
       <div
         className="song-card"
         style={{
@@ -16,7 +16,7 @@ const SongCard = ({ item, handleViewLyrics }) => {
         <div className="bottom-white-container">
           <div style={{ width: '100%' }}>
             <img src={item.artist.picture_medium} alt="" className="artist-image" />
-            <span style={{ fontSize: 18, alignItems: 'center', width: '100%' }} className="px-3">
+            <span style={{ fontSize: 16, alignItems: 'center', width: '100%' }} className="px-3">
               {item.artist.name}
             </span>
           </div>
