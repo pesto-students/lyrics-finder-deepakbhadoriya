@@ -1,10 +1,18 @@
-/* Home Video CSS */
+/* body scroll bar  */
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+/* Home Video CSS */
 header {
   position: relative;
   background-color: #f6507e;
-  height: 300px;
-  min-height: 25rem;
+  height: 250px;
   width: 100%;
   overflow: hidden;
 }
@@ -42,7 +50,7 @@ header .overlay {
 
 /* Home Banner */
 .home-banner {
-  height: 300px;
+  height: 250px;
   background-color: #f6507e;
 }
 
@@ -121,18 +129,9 @@ header .overlay {
   width: 70px;
   border-radius: 35px;
   margin-top: -35px;
-  /* float: left; */
 }
 
 .button-style {
   padding: 3px 20px;
   border-radius: 50px;
-  transition-duration: 2000ms;
-  /* transition-timing-function: linear; */
-  transition: 0.3s linear;
-}
-
-.button-style:hover {
-  padding: 3px 20px;
-  border-radius: 5px;
 }

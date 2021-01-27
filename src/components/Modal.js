@@ -2,8 +2,8 @@ import React from 'react';
 
 import Loader from '../components/Loader';
 
-const Modal = ({ songLyrics, handleCancel, handleCopy }) =>
-  songLyrics && (
+const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, handleCopy }) =>
+  modalVisible && (
     <div
       className="container-fluid"
       style={{
@@ -21,7 +21,7 @@ const Modal = ({ songLyrics, handleCancel, handleCopy }) =>
           style={{ backgroundColor: 'white', borderRadius: 8 }}
           align="center"
         >
-          {songLyrics === 'loading' ? (
+          {songLyricsLoading ? (
             <Loader />
           ) : (
             <div style={{ overflow: 'auto', height: '500px' }}>
@@ -42,7 +42,7 @@ const Modal = ({ songLyrics, handleCancel, handleCopy }) =>
               Close <i className="far fa-times-circle"></i>
             </button>
             <button
-              disabled={songLyrics === 'loading'}
+              disabled={songLyricsLoading}
               type="button"
               className="btn btn-danger button-style mx-1"
               onClick={handleCopy}
