@@ -51,9 +51,10 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="container-fluid ">
+      <Header />
+
+      <div className="container-fluid  ">
         <div className="row">
-          <Header />
           <SearchBar
             handleSearch={handleSearch}
             setSearchKeyword={setSearchKeyword}
@@ -62,7 +63,7 @@ const HomePage = () => {
         </div>
         <div
           className="row mx-lg-5 px-lg-5 mx-md-5"
-          style={{ minHeight: window.innerHeight - 370 }}
+          style={{ minHeight: window.innerHeight - 422 }}
         >
           {songsListLoading ? (
             <Loader />
@@ -78,7 +79,7 @@ const HomePage = () => {
               />
             ))
           ) : (
-            <img src={defaultHome} alt="" height="300px" />
+            <img src={defaultHome} alt="" height="250px" />
           )}
           <div className="col-12" align="center">
             {loadingMore ? (
@@ -88,8 +89,8 @@ const HomePage = () => {
               songsList.next && (
                 <button
                   type="button"
-                  class="btn btn-outline-danger my-4"
-                  onClick={() => getMoreSongs(songsList.next)}
+                  className="btn btn-outline-danger my-4"
+                  onClick={() => getMoreSongs(songsList.next.replace('http', 'https'))}
                 >
                   Load More
                 </button>
