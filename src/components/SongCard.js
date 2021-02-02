@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Components.module.css';
+
 const SongCard = ({ item, handleViewLyrics }) => {
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 col-12 my-3">
@@ -14,13 +16,13 @@ const SongCard = ({ item, handleViewLyrics }) => {
           {item.title.length > 60 && '......'}
         </h5>
         <div className="bottom-white-container">
-          <div style={{ width: '100%' }}>
+          <div className={styles.w100}>
             <img src={item.artist.picture_medium} alt="" className="artist-image" />
-            <span style={{ fontSize: 16, alignItems: 'center', width: '100%' }} className="px-3">
+            <span className={styles.artistName} className="px-3">
               {item.artist.name}
             </span>
           </div>
-          <div className="" style={{ width: '100%' }} align="center">
+          <div className={styles.w100} align="center">
             <button
               type="button"
               className="btn btn-danger button-style"

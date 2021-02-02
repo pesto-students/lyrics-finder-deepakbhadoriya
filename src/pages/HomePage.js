@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import debounce from '../utils/debounce';
 
 import SongCard from '../components/SongCard';
 import Modal from '../components/Modal';
@@ -40,10 +41,12 @@ const HomePage = () => {
     });
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    getSongs(searchKeyword);
+  const handleSearch = (e, query = searchKeyword) => {
+    e && e.preventDefault();
+    getSongs(query);
   };
+
+  const debounceSearch = debounce(handleSearch, 500);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(songLyrics);
@@ -52,12 +55,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
-
       <div className="container-fluid  ">
         <div className="row">
           <SearchBar
             handleSearch={handleSearch}
             setSearchKeyword={setSearchKeyword}
+            debounceSearch={debounceSearch}
             searchKeyword={searchKeyword}
           />
         </div>
