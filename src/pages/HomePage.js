@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import debounce from '../utils/debounce';
+import React, { useState, useCallback } from 'react';
+import debounce from 'lodash/debounce';
 
 import SongCard from '../components/SongCard';
 import Modal from '../components/Modal';
@@ -46,10 +46,22 @@ const HomePage = () => {
     getSongs(query);
   };
 
-  const debounceSearch = debounce(handleSearch, 500);
+  // eslint-disable-next-line
+  const debounceSearch = useCallback(
+    debounce((searchKeyword) => {
+      handleSearch(null, searchKeyword);
+    }, 500),
+    []
+  );
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(songLyrics);
+  };
+
+  const handleOnChange = (e) => {
+    const searchQuery = e.target.value;
+    setSearchKeyword(searchQuery);
+    debounceSearch(searchQuery);
   };
 
   return (
@@ -59,8 +71,7 @@ const HomePage = () => {
         <div className="row">
           <SearchBar
             handleSearch={handleSearch}
-            setSearchKeyword={setSearchKeyword}
-            debounceSearch={debounceSearch}
+            handleOnChange={handleOnChange}
             searchKeyword={searchKeyword}
           />
         </div>

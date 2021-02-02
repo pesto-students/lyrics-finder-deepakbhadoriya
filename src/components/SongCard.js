@@ -18,9 +18,7 @@ const SongCard = ({ item, handleViewLyrics }) => {
         <div className="bottom-white-container">
           <div className={styles.w100}>
             <img src={item.artist.picture_medium} alt="" className="artist-image" />
-            <span className={styles.artistName} className="px-3">
-              {item.artist.name}
-            </span>
+            <span className={`${styles.artistName} px-3`}>{item.artist.name}</span>
           </div>
           <div className={styles.w100} align="center">
             <button
