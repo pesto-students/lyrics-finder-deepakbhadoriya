@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import styles from './Components.module.css';
 import Loader from '../components/Loader';
@@ -15,10 +15,10 @@ const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, hand
             <Loader />
           ) : (
             <div className={styles.lyricsContainer}>
-              {songLyrics.split(/\n/g).map((item) => (
-                <>
+              {songLyrics.split(/\n/g).map((item, index) => (
+                <Fragment key={index}>
                   {item} <br />
-                </>
+                </Fragment>
               ))}
             </div>
           )}
@@ -32,7 +32,7 @@ const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, hand
               Close <i className="far fa-times-circle"></i>
             </button>
             <button
-              disabled={songLyricsLoading}
+              disabled={songLyricsLoading || songLyrics === 'No lyrics present'}
               type="button"
               className="btn btn-danger button-style mx-1"
               onClick={handleCopy}

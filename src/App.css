@@ -12,7 +12,7 @@
 header {
   position: relative;
   background-color: #f6507e;
-  height: 300px;
+  height: 250px;
   width: 100%;
   overflow: hidden;
 }
@@ -62,7 +62,7 @@ header .overlay {
 
 /* Home Banner */
 .home-banner {
-  height: 300px;
+  height: 250px;
   background-color: #f6507e;
 }
 
@@ -93,6 +93,29 @@ header .overlay {
   outline: none;
   padding: 5px;
   width: 85%;
+}
+
+/* Alert Container */
+.alertContainer {
+  position: fixed;
+  z-index: 101;
+  top: 15px;
+}
+
+.alert-error {
+  background-color: #ec3f45;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: max-content;
+}
+
+.alert-success {
+  background-color: #03b185;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: max-content;
 }
 
 /* song card */
@@ -148,6 +171,12 @@ header .overlay {
   border-radius: 50px;
 }
 
+.button-style-fav {
+  /* padding: 3px; */
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px #bbbbbb;
+}
+
 /* modal background */
 .modal-background {
   height: 100%;
@@ -165,6 +194,10 @@ header .overlay {
 
 .background-primary {
   background-color: #dc3444;
+}
+
+.color-primary {
+  color: #dc3444;
 }
 
 @media screen and (max-width: 340px) {

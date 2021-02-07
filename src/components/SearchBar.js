@@ -2,16 +2,14 @@ import React from 'react';
 
 import styles from './Components.module.css';
 
-const SearchBar = ({ handleSearch, handleOnChange, searchKeyword }) => (
+const SearchBar = ({ handleSearch, handleOnChange }) => (
   <div className="offset-lg-3 col-lg-6 col-sm-12 mb-5" align="center">
     <div className="search-bar-container" align="left">
       <form onSubmit={handleSearch}>
         <input
           type="text"
           className="search-bar"
-          value={searchKeyword}
           onChange={handleOnChange}
-          aria-describedby="emailHelp"
           placeholder="Enter your favorite Song or Artist name here"
         />
         <button

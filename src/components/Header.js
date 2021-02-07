@@ -18,7 +18,7 @@ const Header = () => (
       </div>
     </div>
     <div className="overlay"></div>
-    <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop" height="300px">
+    <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop" height="250px">
       <source
         src="https://static.videezy.com/system/resources/previews/000/042/934/original/bg0024-2.mp4"
         type="video/mp4"
