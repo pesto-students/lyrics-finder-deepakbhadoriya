@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import debounce from 'lodash/debounce';
 
 import Alert from '../components/Alert';
@@ -31,16 +31,16 @@ const HomePage = () => {
   }, [alert, setAlert]);
 
   // Get favorite from localStorage to localState
-  const getFavoriteSongs = () => {
+  const getFavoriteSongs = useCallback(() => {
     const songs = favoriteSongCRUD.getAllFavSong();
     setFavoriteSongs(songs);
     if (showFavorites) {
       setSongsList({ data: songs });
     }
-  };
+  }, [setFavoriteSongs, setSongsList, showFavorites]);
 
   // execute getFavoriteSongs for component mound
-  useEffect(() => getFavoriteSongs(), []);
+  useEffect(() => getFavoriteSongs(), [getFavoriteSongs]);
 
   // Handle search by enter or search button click
   const handleSearch = (e, query = searchKeyword) => {
