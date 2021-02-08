@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import styles from './Components.module.css';
 import Loader from '../components/Loader';
 
 const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, handleCopy }) =>
@@ -7,23 +8,22 @@ const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, hand
     <div className="container-fluid modal-background">
       <div className="row">
         <div
-          className="offset-lg-3 col-lg-6 col-12 my-5 p-4"
-          style={{ backgroundColor: 'white', borderRadius: 8 }}
+          className={`offset-lg-3 col-lg-6 col-12 my-5 p-4 ${styles.lyricsModal}`}
           align="center"
         >
           {songLyricsLoading ? (
             <Loader />
           ) : (
-            <div style={{ overflow: 'auto', height: '500px' }}>
-              {songLyrics.split(/\n/g).map((item) => (
-                <>
+            <div className={styles.lyricsContainer}>
+              {songLyrics.split(/\n/g).map((item, index) => (
+                <Fragment key={index}>
                   {item} <br />
-                </>
+                </Fragment>
               ))}
             </div>
           )}
           <hr />
-          <div style={{ width: '100%', height: 30 }} align="center">
+          <div className={styles.modalButtonContainer} align="center">
             <button
               type="button"
               className="btn btn-secondary button-style mx-1"
@@ -32,7 +32,7 @@ const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, hand
               Close <i className="far fa-times-circle"></i>
             </button>
             <button
-              disabled={songLyricsLoading}
+              disabled={songLyricsLoading || songLyrics === 'No lyrics present'}
               type="button"
               className="btn btn-danger button-style mx-1"
               onClick={handleCopy}

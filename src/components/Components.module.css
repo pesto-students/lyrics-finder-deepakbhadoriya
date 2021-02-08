@@ -1,0 +1,26 @@
+.lyricsModal {
+  background-color: #fff;
+  border-radius: 8px;
+}
+.lyricsContainer {
+  overflow: auto;
+  height: 500px;
+}
+
+.modalButtonContainer {
+  height: 30px;
+}
+
+.searchButton {
+  float: right;
+  border-radius: 100px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.artistName {
+  font-size: 16px;
+  align-items: center;
+}
