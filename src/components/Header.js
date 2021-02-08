@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => (
+const Header = ({ showFavorites }) => (
   <header>
     <div className="col-12 header-style">
       <div className="row mx-lg-5 px-lg-5 mx-md-5 mx-sm-1 mx-1">
@@ -27,7 +27,9 @@ const Header = () => (
     <div className="container ">
       <div className="d-flex text-center align-items-center">
         <div className="w-100 text-white">
-          <h1 className="home-banner-text">Search Your Song Lyrics</h1>
+          <h1 className="home-banner-text">
+            {showFavorites ? 'Your favorite Songs' : 'Search Your Song Lyrics'}
+          </h1>
         </div>
       </div>
     </div>

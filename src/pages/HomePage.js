@@ -7,9 +7,8 @@ import Loader from '../components/Loader';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
-import Favorites from '../components/Favorites';
 import LoadMoreButton from '../components/LoadMoreButton';
-import SongCardContainer from './SongCardContainer';
+import SongCardContainer from '../components/SongCardContainer';
 
 import songActions from '../actions/songActions';
 import favoriteSongCRUD from '../actions/favoriteSongCRUD';
@@ -24,6 +23,7 @@ const HomePage = () => {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [alert, setAlert] = useState(false);
   const [favoriteSongs, setFavoriteSongs] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false);
 
   // remove alert after 3 second
   useEffect(() => {
@@ -31,10 +31,16 @@ const HomePage = () => {
   }, [alert, setAlert]);
 
   // Get favorite from localStorage to localState
-  useEffect(() => {
+  const getFavoriteSongs = () => {
     const songs = favoriteSongCRUD.getAllFavSong();
     setFavoriteSongs(songs);
-  }, [setFavoriteSongs]);
+    if (showFavorites) {
+      setSongsList({ data: songs });
+    }
+  };
+
+  // execute getFavoriteSongs for component mound
+  useEffect(() => getFavoriteSongs(), []);
 
   // Handle search by enter or search button click
   const handleSearch = (e, query = searchKeyword) => {
@@ -108,37 +114,49 @@ const HomePage = () => {
   // Handle song add and remove from local storage
   const handleFavorite = (song) => {
     if (isFavorite(song)) {
-      const songs = favoriteSongCRUD.removeSong(song);
-      setFavoriteSongs(songs);
+      favoriteSongCRUD.removeSong(song);
+      getFavoriteSongs();
       setAlert({ message: 'Song Removed from favorites', type: 'success' });
-    } else if (favoriteSongs.length > 10) {
-      setAlert({ message: 'Only ten songs can be added to favorites', type: 'error' });
+    } else if (favoriteSongs.length > 50) {
+      setAlert({ message: 'Only fifty songs can be added to favorites', type: 'error' });
       return null;
     } else {
-      const songs = favoriteSongCRUD.addSong(song);
-      setFavoriteSongs(songs);
+      favoriteSongCRUD.addSong(song);
+      getFavoriteSongs();
       setAlert({ message: 'Song Added to favorites', type: 'success' });
     }
   };
 
   //check if song is already present
   const isFavorite = (song) => {
-    // console.log(favoriteSongs);
     return favoriteSongs.find((item) => item.id === song.id);
+  };
+
+  // Toggle display favorites
+  const toggleFavorite = () => {
+    setSongsList(false);
+    if (!showFavorites) {
+      setTimeout(() => setSongsList({ data: favoriteSongs }), 100);
+    }
+    setShowFavorites(!showFavorites);
   };
 
   return (
     <>
-      <Header />
+      <Header showFavorites={showFavorites} />
       <Alert alert={alert} removeAlert={() => setAlert(false)} />
       <div className="container-fluid  ">
         <div className="row">
-          <SearchBar handleSearch={handleSearch} handleOnChange={handleOnChange} />
-          <Favorites />
+          <SearchBar
+            handleSearch={handleSearch}
+            handleOnChange={handleOnChange}
+            showFavorites={showFavorites}
+            toggleFavorite={toggleFavorite}
+          />
         </div>
         <div
           className="row mx-lg-5 px-lg-5 mx-md-5"
-          style={{ minHeight: window.innerHeight - 422 }}
+          style={{ minHeight: window.innerHeight - 373 }}
         >
           {songsListLoading ? (
             <Loader />
