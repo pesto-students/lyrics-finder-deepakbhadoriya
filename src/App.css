@@ -71,6 +71,17 @@ header .overlay {
   color: #ffffff;
 }
 
+.back-button-container {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 20px 0px;
+  padding: 15px;
+  border-radius: 1000px;
+  margin-top: -30px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 5;
+  width: max-content;
+}
+
 .search-bar-container {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 20px 0px;
   padding: 15px;
@@ -83,7 +94,7 @@ header .overlay {
 
 .search-icon {
   margin: auto;
-  width: 15%;
+  width: 25%;
 }
 
 .search-bar {
@@ -92,7 +103,7 @@ header .overlay {
   border: none;
   outline: none;
   padding: 5px;
-  width: 85%;
+  width: 75%;
 }
 
 /* Alert Container */
@@ -200,10 +211,10 @@ header .overlay {
   color: #dc3444;
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 460px) {
   .search-icon {
     margin: auto;
-    width: 25%;
+    width: 40%;
   }
 
   .search-bar {
@@ -212,6 +223,6 @@ header .overlay {
     border: none;
     outline: none;
     padding: 5px;
-    width: 75%;
+    width: 60%;
   }
 }

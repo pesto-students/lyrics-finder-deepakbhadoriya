@@ -6,7 +6,6 @@ const getAllFavSong = () => {
 const addSong = (song) => {
   const allSongs = getAllFavSong();
   localStorage.setItem('favoriteSongs', JSON.stringify([...allSongs, song]));
-  return getAllFavSong();
 };
 
 const removeSong = (song) => {
@@ -15,7 +14,6 @@ const removeSong = (song) => {
     'favoriteSongs',
     JSON.stringify(allSongs.filter((item) => item.id !== song.id))
   );
-  return getAllFavSong();
 };
 
 const FavoriteSongCRUD = { getAllFavSong, addSong, removeSong };
