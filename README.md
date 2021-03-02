@@ -3,6 +3,9 @@
 Deploy your project on Netlify/GitHub pages/etc and put your deployed link here.
 Link: https://lyrics-finder-deepak.herokuapp.com/
 
+Api used have sending image url as http while heroku is using SSL, so issue in image loading. Deployed without http to resolve the issue 
+Link: http://www.lyrics.aykastudios.com/
+
 # Instruction
 
 You need to create a Lyrics app to show song lyrics. You are free to design the app as per your wishes. The only core requirement is that it should be usable from a user's perspective.
