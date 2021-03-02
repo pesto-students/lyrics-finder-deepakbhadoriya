@@ -44,7 +44,7 @@ const getSongLyrics = async ({ setLoading, setData, setAlert, artistName, song }
     // ? using Static Error as api don't know return error message
     setAlert({ message: 'Failed to Fetch', type: 'error' });
     console.log(error);
-    setData(null);
+    setData('No lyrics present');
     setLoading(false);
   }
 };

@@ -1,5 +1,8 @@
 import React from 'react';
 
+import Background from '../assets/images/background.jpg';
+import Singer from '../assets/images/singer.jpg';
+
 import styles from './Components.module.css';
 
 const SongCard = ({ item, handleViewLyrics, handleFavorite, isFavorite }) => {
@@ -8,7 +11,7 @@ const SongCard = ({ item, handleViewLyrics, handleFavorite, isFavorite }) => {
       <div
         className="song-card"
         style={{
-          backgroundImage: `url( ${item.album.cover_big})`,
+          backgroundImage: `url( ${item.album.cover_big || Background})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}
@@ -22,7 +25,7 @@ const SongCard = ({ item, handleViewLyrics, handleFavorite, isFavorite }) => {
             <img
               className="img-fluid artist-image"
               loading="lazy"
-              src={item.artist.picture_medium}
+              src={item.artist.picture_medium || Singer}
               alt=""
             />
             <span className={`${styles.artistName} px-3`}>{item.artist.name}</span>

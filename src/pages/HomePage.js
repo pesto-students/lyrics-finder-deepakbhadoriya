@@ -104,7 +104,16 @@ const HomePage = () => {
 
   // copy song lyrics to clipboard
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(songLyrics);
+    // await navigator.clipboard.writeText(songLyrics);
+    const el = document.createElement('textarea');
+    el.value = songLyrics;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
     setAlert({ message: 'Copied to clipboard', type: 'success' });
   };
 

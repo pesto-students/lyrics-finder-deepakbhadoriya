@@ -15,11 +15,12 @@ const Modal = ({ songLyrics, songLyricsLoading, modalVisible, handleCancel, hand
             <Loader />
           ) : (
             <div className={styles.lyricsContainer}>
-              {songLyrics.split(/\n/g).map((item, index) => (
-                <Fragment key={index}>
-                  {item} <br />
-                </Fragment>
-              ))}
+              {songLyrics &&
+                songLyrics.split(/\n/g).map((item, index) => (
+                  <Fragment key={index}>
+                    {item} <br />
+                  </Fragment>
+                ))}
             </div>
           )}
           <hr />
