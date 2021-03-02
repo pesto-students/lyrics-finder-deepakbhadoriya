@@ -8,6 +8,16 @@ Link: https://lyrics-finder-deepak.herokuapp.com/
 Api used have sending image url as http while heroku is using SSL, so issue in image loading. Deployed without http to resolve the issue 
 Link: http://www.lyrics.aykastudios.com/
 
+**Landing Page**
+![Screenshot from 2021-03-02 22-47-43](https://user-images.githubusercontent.com/48173231/109687703-83736780-7ba9-11eb-8a79-40d21c6f9e50.png)
+
+**Search Result Page**
+![Screenshot from 2021-03-02 22-48-07](https://user-images.githubusercontent.com/48173231/109687692-81a9a400-7ba9-11eb-9dd4-b10b4fe3a88a.png)
+
+**Lyrics Modal**
+![Screenshot from 2021-03-02 22-48-31](https://user-images.githubusercontent.com/48173231/109687682-7f474a00-7ba9-11eb-8bab-511561586f40.png)
+
+
 # Instruction
 
 You need to create a Lyrics app to show song lyrics. You are free to design the app as per your wishes. The only core requirement is that it should be usable from a user's perspective.
